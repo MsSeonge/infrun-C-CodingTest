@@ -1,0 +1,24 @@
+import sys
+sys.stdin = open("input.txt","rt")
+
+
+def binarySearch(x):
+    start = 0
+    end = len(Map)-1
+    while(start<=end):
+        mid =  (start+end)//2
+        if Map[mid]<x: #  Map < 32
+            start = mid+1
+        elif Map[mid]>x:
+            end = mid-1
+        else: # Map[mid] == 32
+            return mid
+
+
+
+
+
+n,m = map(int,input().split())
+Map = list(map(int,input().split()))
+Map.sort()
+print(binarySearch(m+1))  # 인덱스를 반환하기 때문에  
